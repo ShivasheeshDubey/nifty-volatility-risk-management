@@ -1,6 +1,6 @@
 # Source Modules
 
-Reusable project functionality is separated from the research notebook.
+Reusable project functionality is separated from the end-to-end research notebook.
 
 ## `volatility.py`
 
@@ -19,14 +19,27 @@ Implements:
 - execution-lag handling
 - transaction costs
 - natural portfolio-weight drift
-- equity/cash portfolio backtesting
+- long-only equity/cash portfolio backtesting
 
-## Remaining Modules
+## `metrics.py`
 
-The repository also separates:
+Implements:
 
-- statistical and performance metrics
-- VaR coverage tests
-- paired block-bootstrap inference
+- annualized Sharpe ratio
+- CAGR and volatility metrics
+- maximum drawdown
+- turnover and exposure statistics
+- Kupiec unconditional VaR coverage test
+- calendar-year performance summaries
 
-into dedicated modules.
+## `bootstrap.py`
+
+Implements:
+
+- paired backtest alignment
+- circular block resampling
+- paired Sharpe-ratio bootstrap confidence intervals
+
+The notebook in `notebooks/` contains the complete empirical workflow,
+while the modules in this directory contain reusable modelling and
+evaluation logic.
