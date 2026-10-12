@@ -430,3 +430,47 @@ def run_backtest_drift_aware(
     )
 
     return result
+
+
+def constant_target(
+    index: pd.Index,
+    weight: float,
+) -> pd.Series:
+    """
+    Create a constant target-weight series.
+    """
+
+    if not 0 <= weight <= 1:
+        raise ValueError(
+            "weight must lie between 0 and 1."
+        )
+
+    return pd.Series(
+        float(weight),
+        index=index,
+        dtype=float,
+    )
+
+
+def first_date_only_mask(
+    index: pd.Index,
+) -> pd.Series:
+    """
+    Rebalance only once, on the first date.
+
+    Useful for buy-and-hold strategies.
+    """
+
+    if len(index) == 0:
+        raise ValueError(
+            "index cannot be empty."
+        )
+
+    mask = pd.Series(
+        False,
+        index=index,
+    )
+
+    mask.iloc[0] = True
+
+    return mask
