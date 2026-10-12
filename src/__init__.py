@@ -9,3 +9,10 @@ from .volatility import (
     variance_to_annualized_volatility,
     garch11_monthly_walkforward,
 )
+
+from .backtest import (
+    get_week_end_mask,
+    run_backtest_drift_aware,
+    constant_target,
+    first_date_only_mask,
+)
