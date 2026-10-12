@@ -16,3 +16,16 @@ from .backtest import (
     constant_target,
     first_date_only_mask,
 )
+
+from .metrics import (
+    annualized_sharpe,
+    performance_metrics,
+    kupiec_test,
+    yearly_performance,
+)
+
+from .bootstrap import (
+    align_backtests,
+    circular_block_indices,
+    paired_sharpe_bootstrap,
+)
